@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ES" ng-app="chat">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="shortcut icon" type="image/png" href="img/favicon.png"/>
+	<title> CHAT </title>
+	<!-- build:css css/chat.min.css -->
+	<!-- inject:css -->
+	<link rel="stylesheet" href="css/main.min.css">
+	<!-- endinject -->
+	<!-- endbower -->
+	<!-- endinject -->
+	<!-- endbuild -->
+</head>
+<body>
+	<div ui-view></div>
+	<!-- build:js app/vendor.min.js -->
+	<!-- bower:js -->
+	<script src="lib/angular/angular.js"></script>
+	<script src="lib/angular-ui-router/release/angular-ui-router.js"></script>
+	<script src="lib/jquery/dist/jquery.js"></script>
+	<script src="lib/bootstrap-sass/assets/javascripts/bootstrap.js"></script>
+	<!-- endbower -->
+	<!-- endbuild -->
+
+	
+	
+	<!-- build:js app/chat.min.js -->
+	<!-- inject:js -->
+	<script src="app/features/chat/chat.module.js"></script>
+	<script src="app/features/chat/chat.services.js"></script>
+	<script src="app/features/chat/chat.controller.js"></script>
+	<script src="app/app.module.js"></script>
+	<script src="app/cross/cross.utilities.js"></script>
+	<script src="app/cross/cross.constants.strings.js"></script>
+	<script src="app/cross/cross.constants.js"></script>
+	<script src="app/app.routes.js"></script>
+	<script src="app/app.config.js"></script>
+	<!-- endinject -->
+	<!-- endbuild -->
+</body>
+</html>

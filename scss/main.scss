@@ -1,0 +1,22 @@
+
+// Include global imports
+@import 'https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css';
+
+// include general sass
+@import "general/normalize";
+@import "general/fonts";
+@import "general/variables";
+
+/* inject:imports */
+@import "lib/_sweetalert.scss";
+@import "features/chat/_chat.scss";
+/* endinject */
+
+// bower:scss
+//@import "../_dev/lib/bootstrap-sass/assets/stylesheets/_bootstrap.scss";
+// endbower
+
+// include mediaquerys
+@import "general/mediaquerys";
+
+
