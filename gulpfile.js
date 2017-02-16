@@ -26,17 +26,6 @@ var paths = {
   dist: './dist'
 }
 
-/**
- * Task for run a server in web browser
- */
-// gulp.task('server', function () {
-//   gulp.src(paths.dist)
-//     .pipe(webserver({
-//       host: '0.0.0.0',
-//       port: 9080,
-//       livereload: true
-//     }))
-// });
 
 /**(1)
  * Task for nove html views in a final production package.
@@ -184,5 +173,4 @@ gulp.task('git-check', function (done) {
 /**
  * Task for excecute default command gulp
  */
-// gulp.task('default',['watch', 'server']);
 gulp.task('default',['watch']);

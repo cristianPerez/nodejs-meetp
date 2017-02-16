@@ -3,9 +3,6 @@ angular
         .module('chat', [
     
             //module for state routing.
-            'ui.router',
-            
-            //module feature
-            'chatModule',
+            'ui.router'
 
         ]);

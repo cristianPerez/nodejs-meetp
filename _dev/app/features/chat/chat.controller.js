@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('chatModule')
+        .module('chat')
         .controller('chatController', loginController)
 
     loginController.$injejct = ['$state', 'chatService', 'constantServiceString', '$rootScope'];
@@ -10,17 +10,16 @@
     /** @ngInject */
     function loginController($state, chatService, constantServiceString, $rootScope) {
         var vm = this;
+        vm.chats = [];
 
-        init();
-
-        function init() {
-
-            constantServiceString.getStrings().then(function (data) {
-                vm.strings = data;
+        vm.getChats = function() {
+            chatService.getChats().then(function(data){
+                console.log(data);
+                vm.chats = data.chats;
             });
+        };
 
-        }
-
+        vm.getChats();
     }
 
 } ());

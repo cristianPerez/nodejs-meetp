@@ -10,15 +10,20 @@
     function constantService($rootScope) {
 
         var vm = this;
+        //DEVELOP
+        vm.endponint = 'http://localhost:3000';
+
+        //PRODUCCION
+        //vm.endponint = 'https://pragmachat.herokuapp.com';
 
         vm.endponint = '';
 
-        vm.getUrl = function (type) {
-            return vm.endponint + type + '/?secret_key=' + vm.secret_key + "&city=" + $rootScope.city;
-        }
+        vm.getUrlChats = function () {
+            return vm.endponint + '/api/getchats';
+        };
 
         return {
-            getUrl: vm.getUrl,
+            getUrlChats: vm.getUrlChats
         }
 
     }
