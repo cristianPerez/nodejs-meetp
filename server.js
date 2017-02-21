@@ -1,12 +1,22 @@
-import express from 'express';
-const app = express();
-const port = process.env.PORT || 3000
+import http from 'http'
+import express from 'express'
+import socketio from 'socket.io'
 
-app.use(express.static('dist'));
+const app = express()
+const server = http.createServer(app)
+const port = process.env.PORT || 3000
+const io = socketio(server)
+
+app.use(express.static('dist'))
 
 app.get('/api/getchats', (req, res) => {
-    console.log("entro: " + req);
-   res.json([{id: 1, message: 'Hola como estas'}, {id: 2, message: 'Muy bien'}, {id: 3, message: 'Y para cuando'}]);
+   res.json([{id: 1, message: 'Hola como estas'}, {id: 2, message: 'Muy bien'}, {id: 3, message: 'Y para cuando'}])
 });
 
-app.listen(port, () => console.log('servidor en el puerto 3000'));
+io.on('connection', (socket) =>{
+    console.log(`Conecto ${socket.id}`)
+
+    socket.on('ping', ()=> socket.emit('pong'))
+})
+
+server.listen(port, () => console.log(`servidor en el puerto ${port}`))

@@ -18,12 +18,13 @@
 
         vm.endponint = '';
 
-        vm.getUrlChats = function () {
+        vm.getUrlChat = function () {
             return vm.endponint + '/api/getchats';
         };
 
         return {
-            getUrlChats: vm.getUrlChats
+            server: vm.endponint,
+            getUrlChat: vm.getUrlChat
         }
 
     }

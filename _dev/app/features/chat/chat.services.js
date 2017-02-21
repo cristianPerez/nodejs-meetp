@@ -12,9 +12,9 @@
 
         var vm = this;
 
-        vm.getChats = function () {
+        vm.getChat = function () {
             var deferred = $q.defer();
-            $http.get(constantService.getUrlChats(), {
+            $http.get(constantService.getUrlChat(), {
                 cache: false,
             })
                 .success(function (data) {
@@ -27,7 +27,7 @@
         };
 
         return {
-            getChats: vm.getChats
+            getChat: vm.getChat
         };
 
     }
