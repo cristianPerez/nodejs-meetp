@@ -33,23 +33,13 @@
 
         <div class="chat-history">
             <ul>
-                <!--<li class="clearfix">
-                    <div class="message-data align-right">
-                        <span class="message-data-time">10:10 AM, Today</span> &nbsp; &nbsp;
-                        <span class="message-data-name">Olia</span> <i class="fa fa-circle me"></i>
 
-                    </div>
-                    <div class="message other-message float-right">
-                        Hi Vincent, how are you? How is the project coming along?
-                    </div>
-                </li>-->
-
-                <li>
+                <li ng-repeat="chat in chatCtrl.chats" class="chats">
                     <div class="message-data">
-                        <span class="message-data-name"><i class="fa fa-circle online"></i> Vincent</span>
+                        <span class="message-data-name"><i class="fa fa-circle online"></i> {{ chat.nick }}</span>
                     </div>
                     <div class="message my-message">
-                        Are we meeting today? Project has been already finished and I have results to show you.
+                        {{ chat.message }}
                     </div>
                 </li>
 
@@ -59,12 +49,12 @@
         <!-- end chat-history -->
 
         <div class="chat-message clearfix">
-            <textarea name="message-to-send" id="message-to-send" placeholder="Escribir mensaje" rows="3"></textarea>
+            <textarea name="message-to-send" ng-model="chatCtrl.message" placeholder="Escribir mensaje" rows="3"></textarea>
 
             <i class="fa fa-file-o"></i> &nbsp;&nbsp;&nbsp;
             <i class="fa fa-file-image-o"></i>
 
-            <button>Enviar</button>
+            <button ng-click="chatCtrl.newMessage()">Enviar</button>
 
         </div>
         <!-- end chat-message -->

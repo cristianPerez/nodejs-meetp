@@ -11,6 +11,8 @@
     function loginController($state, chatService, constantServiceString, $rootScope, socketio) {
         var vm = this;
         vm.chats = [];
+        vm.message;
+        vm.nick;
 
         vm.getChat = function() {
             chatService.getChat().then(function(data){
@@ -19,11 +21,18 @@
             });
         };
 
+        vm.newMessage = function(){
+            var newMessage = { id: 1, message: vm.message, nick: 'johnaagude' };
+            vm.chats.push(newMessage);
+            vm.message = "";
+            socketio.emit('send-message', newMessage);
+        }
+
         vm.chat = function(){
-            socketio.on('pong', function(){
-                console.log('PONG');
+            socketio.on('new-message', function(message){
+                console.log(message);
+                vm.chats.push(message);
             });
-            socketio.emit('ping')
         }
      
         vm.getChat();
