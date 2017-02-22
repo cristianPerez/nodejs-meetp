@@ -1,6 +1,7 @@
 import http from 'http'
 import express from 'express'
 import socketio from 'socket.io'
+import request from 'request'
 
 const app = express()
 const server = http.createServer(app)
@@ -10,7 +11,10 @@ const io = socketio(server)
 app.use(express.static('dist'))
 
 app.get('/api/getchats', (req, res) => {
-   res.json([{id: 1, message: 'Hola como estas', nick: 'johnaagude' }, {id: 2, message: 'Muy bien', nick: 'cperez'}, {id: 3, message: 'Y para cuando', nick: 'mimimi'}])
+   res.json([
+       {id: 1, message: 'Hola como estas', nick: 'johnaagude', gif: "" }, 
+       {id: 2, message: 'Muy bien', nick: 'cperez', gif: ""}, 
+       {id: 3, message: 'Y para cuando', nick: 'mimimi', gif: "http://media3.giphy.com/media/9IRX12VhoXoR2/200_d.gif"}])
 });
 
 io.on('connection', (socket) =>{
@@ -19,6 +23,17 @@ io.on('connection', (socket) =>{
     socket.on('send-message', (message) => { 
         console.log(message);
         socket.broadcast.emit('new-message', message)
+    })
+
+    socket.on('req-message-gif', (msg)=> {
+        console.log(msg);
+        request(`http://api.giphy.com/v1/gifs/random?api_key=dc6zaTOxFJmzC&tag=&{msg.message}`, (error, response, body) =>{
+            var url_gif = "";
+            url_gif = JSON.parse(body).data.fixed_height_downsampled_url;
+            console.log(url_gif);
+            msg.gif = url_gif;
+            socket.emit('res-message-gif', msg);
+        })
     })
 
 

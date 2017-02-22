@@ -39,7 +39,8 @@
                         <span class="message-data-name"><i class="fa fa-circle online"></i> {{ chat.nick }}</span>
                     </div>
                     <div class="message my-message">
-                        {{ chat.message }}
+                        <div ng-if="!chat.gif">{{ chat.message }}</div>
+                        <div ng-if="chat.gif"><img src="{{ chat.gif }}" alt=""></div>
                     </div>
                 </li>
 
@@ -51,8 +52,7 @@
         <div class="chat-message clearfix">
             <textarea name="message-to-send" ng-model="chatCtrl.message" placeholder="Escribir mensaje" rows="3"></textarea>
 
-            <i class="fa fa-file-o"></i> &nbsp;&nbsp;&nbsp;
-            <i class="fa fa-file-image-o"></i>
+            <i class="fa fa-file-image-o" ng-click="chatCtrl.sendgif()"> Gif</i>
 
             <button ng-click="chatCtrl.newMessage()">Enviar</button>
 
