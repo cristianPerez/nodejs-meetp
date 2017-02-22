@@ -26,8 +26,8 @@ io.on('connection', (socket) =>{
     })
 
     socket.on('req-message-gif', (msg)=> {
-        console.log(msg);
-        request(`http://api.giphy.com/v1/gifs/random?api_key=dc6zaTOxFJmzC&tag=&{msg.message}`, (error, response, body) =>{
+        console.log(`http://api.giphy.com/v1/gifs/random?api_key=dc6zaTOxFJmzC&tag=${msg.message}`)
+        request(`http://api.giphy.com/v1/gifs/random?api_key=dc6zaTOxFJmzC&tag=${msg.message}`, (error, response, body) =>{
             var url_gif = "";
             url_gif = JSON.parse(body).data.fixed_height_downsampled_url;
             console.log(url_gif);
