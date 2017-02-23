@@ -9,11 +9,16 @@ routes.$inject = ['$stateProvider', '$urlRouterProvider', '$httpProvider'];
 function routes($stateProvider, $urlRouterProvider, $httpProvider) {
 
     $stateProvider
-        .state('chat', {
+        .state('login', {
             url: '/',
+            templateUrl: 'app/features/login/login.view.html',
+            controller: 'loginController as login'
+        })
+        .state('chat', {
+            url: '/chat',
             templateUrl: 'app/features/chat/chat.view.html',
             controller: 'chatController as chatCtrl'
-        })
+        });
 
     $urlRouterProvider.otherwise('/')
 }

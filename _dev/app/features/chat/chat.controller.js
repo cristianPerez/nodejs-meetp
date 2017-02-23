@@ -5,11 +5,12 @@
         .module('chat')
         .controller('chatController', loginController)
 
-    loginController.$injejct = ['$state', 'chatService', 'constantServiceString', '$rootScope', 'socketio'];
+    loginController.$injejct = ['$state', 'chatService', 'socketio'];
 
     /** @ngInject */
-    function loginController($state, chatService, constantServiceString, $rootScope, socketio) {
+    function loginController($state, chatService, socketio) {
         var vm = this;
+        vm.users= [];
         vm.chats = [];
         vm.message;
         vm.nick;
@@ -22,6 +23,13 @@
             });
         };
 
+        vm.getUsers = function() {
+            chatService.getUsers().then(function(data){
+                console.log(data);
+                vm.users = data.users;
+            });
+        };
+
         vm.newMessage = function(){
             var newMessage = { id: 1, message: "", nick: 'johnaagude', gif: "" };
             if(!vm.gif){
@@ -29,7 +37,7 @@
                 vm.chats.push(newMessage);
                 vm.message = "";
                 socketio.emit('send-message', newMessage);
-            }else{
+            } else {
                 var word = "";
                 word = vm.message.split(" ");
                 if(word != undefined){
@@ -54,10 +62,14 @@
                  vm.chats.push(message);
                  vm.message = "";
             })
+            socketio.on('active-users', function(users){
+                 vm.users = users;
+            })
             
         }
      
         vm.getChat();
+        vm.getUsers();
         vm.chat();
     }
 

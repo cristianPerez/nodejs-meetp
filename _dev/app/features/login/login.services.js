@@ -26,23 +26,8 @@
             return deferred.promise;
         };
 
-        vm.getUsers = function () {
-            var deferred = $q.defer();
-            $http.get(constantService.getUrlUsers(), {
-                cache: false,
-            })
-                .success(function (data) {
-                    deferred.resolve({error: false, users: data});
-                })
-                .error(function (err) {
-                    deferred.resolve({error: true, e: err});
-                });
-            return deferred.promise;
-        };
-
         return {
-            getChat: vm.getChat,
-            getUsers: vm.getUsers
+            getChat: vm.getChat
         };
 
     }

@@ -4,6 +4,9 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title> Pragma chat </title>
+
+	<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/flexboxgrid/6.3.1/flexboxgrid.min.css" type="text/css" >
+
 	<!-- build:css css/chat.min.css -->
 	<!-- inject:css -->
 	<link rel="stylesheet" href="css/main.min.css">
@@ -30,10 +33,13 @@
 	<!-- build:js app/chat.min.js -->
 	<!-- inject:js -->
 	<script src="app/app.module.js"></script>
+	<script src="app/features/login/login.services.js"></script>
+	<script src="app/features/login/login.controller.js"></script>
 	<script src="app/features/chat/chat.services.js"></script>
 	<script src="app/features/chat/chat.controller.js"></script>
 	<script src="app/cross/cross.utilities.js"></script>
 	<script src="app/cross/cross.socketio.js"></script>
+	<script src="app/cross/cross.directives.js"></script>
 	<script src="app/cross/cross.constants.strings.js"></script>
 	<script src="app/cross/cross.constants.js"></script>
 	<script src="app/app.routes.js"></script>

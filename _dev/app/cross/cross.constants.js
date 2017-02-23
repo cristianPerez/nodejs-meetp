@@ -22,9 +22,14 @@
             return vm.endponint + '/api/getchats';
         };
 
+        vm.getUrlUsers = function () {
+            return vm.endponint + '/api/users';
+        };
+
         return {
             server: vm.endponint,
-            getUrlChat: vm.getUrlChat
+            getUrlChat: vm.getUrlChat,
+            getUrlUsers: vm.getUrlUsers
         }
 
     }
