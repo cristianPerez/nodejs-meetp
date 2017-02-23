@@ -1,13 +1,5 @@
 .container-purple {
-
-  width: 100%;
-  height: 100vh;
-  background: $color_purple; /* For browsers that do not support gradients */
-  background: -webkit-linear-gradient(left, $color_purple, $color_purple_hover); /* For Safari 5.1 to 6.0 */
-  background: -o-linear-gradient(right, $color_purple, $color_purple_hover); /* For Opera 11.1 to 12.0 */
-  background: -moz-linear-gradient(right, $color_purple, $color_purple_hover); /* For Firefox 3.6 to 15 */
-  background: linear-gradient(to right, $color_purple, $color_purple_hover); /* Standard syntax */
-
+    @include container-background($color_purple, $color_purple_hover);
 }
 
 .form-nickname {
@@ -70,3 +62,15 @@ input[type="text"].form-nickname-text:-ms-input-placeholder { /* Internet Explor
   height: 40px;
   color: white;
 }
+
+.img-logo {
+  display: block;
+  margin: 0 auto;
+}
+
+.container-transparent {
+  width: 100%;
+  height: 200px;
+  background: transparent;
+}
+

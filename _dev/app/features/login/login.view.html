@@ -2,16 +2,16 @@
     <div class="row">
         <div class="col-xs-12 col-sm-6 col-sm-offset-3 col-md-4 col-md-offset-4">
                 <div class="form-nickname">
+                    <div class="container-transparent"></div>
+                     <img class="img-logo" src="https://s3-us-west-1.amazonaws.com/glanz-node/logo_pragma.png">
                      <p class="form-nickname-title">Bienvenido a pragma Chat</p>
-
                     <form name="loginForm" ng-submit="loginForm.$valid && login.login()" role="form" novalidate>
 
-                        <input type="text" class="form-nickname-text" placeholder="nickname" name="nickname" ng-model="login.client.nickname" required=required/>
+                        <input type="text" maxlength="8" class="form-nickname-text" placeholder="nickname" name="nickname" ng-model="login.client.nickname" required=required/>
 
                         <p class="message-validation" ng-show="login.messagevalidation && loginForm.nickname.$error.required
 								|| loginForm.nickname.$touched && loginForm.nickname.$error.required"
                            class="message_required" >* Campo requerido</p>
-
                         <button type="submit" class="btn-entrar" ng-click="login.validate(loginform.$valid)">Entrar</button>
                     </form>
 

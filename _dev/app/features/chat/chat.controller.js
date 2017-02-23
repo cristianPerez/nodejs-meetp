@@ -5,16 +5,20 @@
         .module('chat')
         .controller('chatController', loginController)
 
-    loginController.$injejct = ['$state', 'chatService', 'socketio'];
+    loginController.$injejct = ['$state', 'chatService', 'socketio', 'utilitiesService'];
 
     /** @ngInject */
-    function loginController($state, chatService, socketio) {
+    function loginController($state, chatService, socketio, utilitiesService) {
         var vm = this;
         vm.users= [];
         vm.chats = [];
         vm.message;
         vm.nick;
         vm.gif = false;
+
+        if(utilitiesService.getLocalStorageItem("nickname") == null || utilitiesService.getLocalStorageItem("nickname") == undefined){
+            $state.go('login');
+        }
 
         vm.getChat = function() {
             chatService.getChat().then(function(data){
@@ -46,12 +50,12 @@
                     vm.gif = false;
                 }
             }
-        }
+        };
 
          vm.sendgif = function(){
             vm.message = "#giphy ";
             vm.gif = true;
-        }
+        };
 
         vm.chat = function(){
             socketio.on('new-message', function(message){
@@ -66,7 +70,12 @@
                  vm.users = users;
             })
             
-        }
+        };
+
+        vm.logOut = function(){
+            utilitiesService.removeLocalStorageItem("nickname");
+            $state.go('login');
+        };
      
         vm.getChat();
         vm.getUsers();

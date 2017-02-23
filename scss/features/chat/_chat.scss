@@ -1,5 +1,5 @@
 
-$green: #86BB71;
+$green: rgba(255,255,255, 0.4);
 $blue: #94C2ED;
 $orange: #E38968;
 $gray: #92959E;
@@ -43,13 +43,9 @@ ul li{
   
   ul {
     padding: 20px;
-    height: 770px;
- 
-    
-    
-    
+
     li {
-      padding-bottom: 20px;
+      margin-bottom: 2px;
     }
   }
   
@@ -75,15 +71,15 @@ ul li{
 .chat {
   width: 490px;
   float:left;
-  background: #F2F5F8;
   border-top-right-radius: 5px;
   border-bottom-right-radius: 5px;
-  
-  color: #434651;
+  color: white;
+  border: solid 1px white;
   
   .chat-header {
     padding: 20px;
     border-bottom: 2px solid white;
+    height: 85px;
     
     img {
       float: left;
@@ -116,7 +112,7 @@ ul li{
     padding: 30px 30px 20px;
     border-bottom: 2px solid white;
     overflow-y: scroll;
-    height: 575px;
+    height: 360px;
     
     .message-data {
       margin-bottom: 15px;
@@ -243,8 +239,6 @@ ul li{
 	height: 0;
 }
 
-
-
 /* -   - - - - - -- - */
 
 .avatar-new {
@@ -252,4 +246,37 @@ ul li{
   height: 80px;
   border-radius: 50%;
   background: url("https://cdn3.iconfinder.com/data/icons/glyph/227/people-Talk-512.png");
+}
+
+.container-chat {
+  @include container-background($color_purple, $color_purple_hover);
+}
+
+.close-session {
+
+  display: block;
+  border: 1px solid #fff;
+  border-radius: 5px;
+  color: #fff;
+  text-align: center;
+  margin: 30px;
+  padding: 5px;
+
+  &:hover {
+    cursor: pointer;
+    background: rgba(255,255,255, 0.2);
+  }
+
+}
+
+.name-user-chat {
+  color: white !important;
+  margin-top: 10px;
+}
+
+.contact-li-user {
+
+  border: solid 1px white;
+  @include border-radius(5px);
+
 }

@@ -11,24 +11,25 @@ const io = socketio(server)
 app.use(express.static('dist'))
 
 var messages = [
-    {id: 1, message: 'Hola como estas', nick: 'johnaagude', gif: "" },
-    {id: 2, message: 'Muy bien', nick: 'cperez', gif: ""},
-    {id: 3, message: 'Y para cuando', nick: 'mimimi', gif: "http://media3.giphy.com/media/9IRX12VhoXoR2/200_d.gif"}];
+    {id: 1, message: 'Bienvenidos', nick: 'PragmaChat', gif: ""},
+    {id: 3, message: 'Silvio', nick: 'Silvio', gif: "http://media3.giphy.com/media/9IRX12VhoXoR2/200_d.gif"}];
 
-var users = [{socket_id : 'dfasdfasfd', nick: 'Example'}];
+var users = [
+    /* {socket_id : 'dfasdfasfd', nick: 'Example'}*/
+];
 
 app.get('/api/getchats', (req, res) => {
-   res.json(messages)
+    res.json(messages)
 });
 
 app.get('/api/users', (req, res) => {
-   res.json(users)
+    res.json(users)
 });
 
 io.on('connection', (socket) => {
     console.log(`Conecto ${socket.id}`)
 
-    socket.on('send-message', (message) => { 
+    socket.on('send-message', (message) => {
         console.log(message + ' ID:::' + socket.id);
         socket.broadcast.emit('new-message', message)
     })

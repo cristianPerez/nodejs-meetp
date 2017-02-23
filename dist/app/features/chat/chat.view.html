@@ -1,60 +1,64 @@
-<div class="container clearfix">
-    <div class="people-list" id="people-list">
-        <div class="search">
-            <input type="text" placeholder="search" />
-            <i class="fa fa-search"></i>
-        </div>
-        <ul class="list">
-            <li class="clearfix" ng-repeat="user in chatCtrl.users">
-                <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/195612/chat_avatar_02.jpg" alt="avatar" />
-                <div class="about">
-                    <div class="name">{{user.nick}}</div>
-                </div>
-            </li>
-        </ul>
-    </div>
+<div class="container-chat">
+    <div class="container clearfix">
+        <div class="people-list" id="people-list">
 
-    <div class="chat">
-        <div class="chat-header clearfix">
-            <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/195612/chat_avatar_01_green.jpg" alt="avatar" />
-
-            <div class="chat-about">
-                <div class="chat-with">Chat pragma</div>
+            <div class="close-session" ng-click="chatCtrl.logOut()">
+                Salir
             </div>
-            <i class="fa fa-star"></i>
-        </div>
-        <!-- end chat-header -->
-
-        <div class="chat-history" scroll-to-bottom="chatCtrl.chats">
-            <ul>
-
-                <li ng-repeat="chat in chatCtrl.chats" class="chats">
-                    <div class="message-data">
-                        <span class="message-data-name"><i class="fa fa-circle online"></i> {{ chat.nick }}</span>
-                    </div>
-                    <div class="message my-message">
-                        <div ng-if="!chat.gif">{{ chat.message }}</div>
-                        <div ng-if="chat.gif"><img src="{{ chat.gif }}" alt=""></div>
+            <ul class="list">
+                <li class="clearfix contact-li-user" ng-repeat="user in chatCtrl.users">
+                    <img src="https://s3-us-west-1.amazonaws.com/glanz-node/Contacts+Filled-50.png" alt="avatar"/>
+                    <div class="about">
+                        <div class="name-user-chat">{{user.nick}}</div>
                     </div>
                 </li>
-
             </ul>
+        </div>
+
+        <div class="chat">
+            <div class="chat-header">
+                <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/195612/chat_avatar_01_green.jpg" alt="avatar"/>
+
+                <div class="chat-about">
+                    <div class="chat-with">Chat pragma</div>
+                </div>
+                <i class="fa fa-star"></i>
+            </div>
+            <!-- end chat-header -->
+
+            <div class="chat-history" scroll-to-bottom="chatCtrl.chats">
+                <ul>
+
+                    <li ng-repeat="chat in chatCtrl.chats" class="chats">
+                        <div class="message-data">
+                            <span class="message-data-name"><i class="fa fa-circle online"></i> {{ chat.nick }}</span>
+                        </div>
+                        <div class="message my-message">
+                            <div ng-if="!chat.gif">{{ chat.message }}</div>
+                            <div ng-if="chat.gif"><img src="{{ chat.gif }}" alt=""></div>
+                        </div>
+                    </li>
+
+                </ul>
+
+            </div>
+            <!-- end chat-history -->
+
+            <div class="chat-message">
+                <textarea name="message-to-send" ng-model="chatCtrl.message" placeholder="Escribir mensaje" rows="3"
+                          dl-enter-key="chatCtrl.newMessage()"></textarea>
+
+                <i class="fa fa-file-image-o" ng-click="chatCtrl.sendgif()"> Gif</i>
+
+                <button ng-click="chatCtrl.newMessage()">Enviar</button>
+
+            </div>
+            <!-- end chat-message -->
 
         </div>
-        <!-- end chat-history -->
-
-        <div class="chat-message clearfix">
-            <textarea name="message-to-send" ng-model="chatCtrl.message" placeholder="Escribir mensaje" rows="3" dl-enter-key="chatCtrl.newMessage()"></textarea>
-
-            <i class="fa fa-file-image-o" ng-click="chatCtrl.sendgif()"> Gif</i>
-
-            <button ng-click="chatCtrl.newMessage()">Enviar</button>
-
-        </div>
-        <!-- end chat-message -->
+        <!-- end chat -->
 
     </div>
-    <!-- end chat -->
+    <!-- end container -->
 
 </div>
-<!-- end container -->
