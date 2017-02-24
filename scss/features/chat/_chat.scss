@@ -20,11 +20,24 @@ ul li{
 .people-list {
   width: 260px;
   max-width: 260px;
-  position: absolute;
+  position: fixed;
   top: 0;
   bottom: 0;
   left: -260px;
+  background: #3b28b1;
+  z-index: 2;
+  transition: .3s all ease;
   
+  &.open{
+    left: 0px;
+  }
+  .close-menu{
+    font-size: 20px;
+    color: white;
+    float: right;
+    padding: 5px;
+  }
+
   .search {
     padding: 20px;
   }
@@ -46,7 +59,8 @@ ul li{
   
   ul {
     padding: 20px;
-
+    height: 85vh;
+    overflow-y: scroll;
     li {
       margin-bottom: 2px;
     }
@@ -73,15 +87,17 @@ ul li{
 
 .chat {
   width: 100%;
+
+  .img-gif{
+    img{
+      width: 100%;
+      height: 150px;
+    }
+  }
   
   .chat-header {
-    padding: 20px;
-    border-bottom: 2px solid white;
-    height: 85px;
-    
-    img {
-      float: left;
-    }
+    padding: 5px;
+    height: 60px;
     
     .chat-about {
       float: left;
@@ -92,28 +108,31 @@ ul li{
     .chat-with {
       font-weight: bold;
       font-size: 16px;
+      color:white;
+      margin-top: 10px;
     }
     
     .chat-num-messages {
       color: $gray;
     }
-    
-    .fa-star {
-      float: right;
+
+    .chat-menu{
+      float: left;
       color: #D8DADF;
       font-size: 20px;
-      margin-top: 12px;
+      margin: 12px 20px 0 20px;
     }
+
   }
   
   .chat-history {
-    padding: 30px 30px 20px;
-    border-bottom: 2px solid white;
+    padding: 5px 30px;
     overflow-y: scroll;
-    height: 360px;
+    height: calc(100vh - 180px);
     
     .message-data {
       margin-bottom: 15px;
+      color: white;
     }
     
     .message-data-time {
@@ -123,14 +142,14 @@ ul li{
     
     .message {      
       color: white;
-      padding: 18px 20px;
+      padding: 10px;
       line-height: 26px;
       font-size: 16px;
       border-radius: 7px;
-      margin-bottom: 30px;
-      width: 90%;
+      margin-bottom: 15px;
+      width: 100%;
       position: relative;
-      
+      max-width: 300px;
       &:after {
         bottom: 100%;
         left: 7%;
@@ -162,14 +181,18 @@ ul li{
   }
   
   .chat-message {
-    padding: 30px;
-    
+    padding: 10px 30px;
+    position: absolute;
+    bottom: 0;
+    height: 115px;
+    background: rgba(255,255,255,.4);
+    width: 100%;
     textarea {
       width: 100%;
       border: none;
       padding: 10px 20px;
       font: 14px/22px "Lato", Arial, sans-serif;
-      margin-bottom: 10px;
+      margin-bottom: 5px;
       border-radius: 5px;
       resize: none;
       
@@ -177,21 +200,20 @@ ul li{
     
     .fa-file-o, .fa-file-image-o {
       font-size: 16px;
-      color: gray;
+      color: #3b28b1;
       cursor: pointer;
       
     }
     
     button {
       float: right;
-      color: $blue;
-      font-size: 16px;
-      text-transform: uppercase;
+      color: #3b28b1;
+      font-size: 12px;
       border: none;
       cursor: pointer;
       font-weight: bold;
       background: #F2F5F8;
-      
+      padding: 5px 10px;
       &:hover {
         color: darken($blue, 7%);
       }

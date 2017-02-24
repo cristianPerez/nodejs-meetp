@@ -15,6 +15,7 @@
         vm.message;
         vm.nick;
         vm.gif = false;
+        vm.menu = '';
 
         if(utilitiesService.getLocalStorageItem("nickname") == null || utilitiesService.getLocalStorageItem("nickname") == undefined){
             $state.go('login');
@@ -76,6 +77,14 @@
             utilitiesService.removeLocalStorageItem("nickname");
             $state.go('login');
         };
+
+        vm.openMenu = function(){
+            vm.menu = 'open';
+        }
+
+        vm.closeMenu = function(){
+            vm.menu = '';
+        }
      
         vm.getChat();
         vm.getUsers();
