@@ -5,9 +5,9 @@
         .module('chat')
         .controller('loginController', loginController)
 
-    loginController.$injejct = ['$state', 'chatService', 'socketio', 'utilitiesService'];
+    loginController.$injejct = ['$state', 'chatService', 'utilitiesService'];
 
-    function loginController($state, socketio, utilitiesService) {
+    function loginController($state, utilitiesService) {
         var vm = this;
         vm.client = {};
         vm.messagevalidation = false;
@@ -19,7 +19,6 @@
 
         vm.login = function() {
             utilitiesService.setLocalStorageItem("nickname", vm.client.nickname);
-            socketio.emit('user-new', vm.client.nickname);
             $state.go('chat');
         };
 
