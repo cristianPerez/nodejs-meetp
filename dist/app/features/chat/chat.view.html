@@ -23,7 +23,7 @@
                 </div>
 
                 <div class="chat-about">
-                    <div class="chat-with">Chat pragma</div>
+                    <div class="chat-with">Chat pragma - {{ chatCtrl.nickname_storage }}</div>
                 </div>
             </div>
             <!-- end chat-header -->
@@ -37,7 +37,7 @@
                         </div>
                         <div class="message my-message">
                             <div ng-if="!chat.gif">{{ chat.message }}</div>
-                            <div ng-if="chat.gif" class="img-gif"><img src="{{ chat.gif }}" alt=""></div>
+                            <div ng-if="chat.gif" class="img-gif"><img ng-src="{{ chat.gif }}" alt=""></div>
                         </div>
                     </li>
 
