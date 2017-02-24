@@ -15,6 +15,7 @@ ul li{
 .container {
   margin: 0 auto;
   border-radius: 5px;
+  position: relative;
 }
 
 .people-list {
@@ -36,6 +37,7 @@ ul li{
     color: white;
     float: right;
     padding: 5px;
+    display: block;
   }
 
   .search {
@@ -121,6 +123,7 @@ ul li{
       color: #D8DADF;
       font-size: 20px;
       margin: 12px 20px 0 20px;
+      display: block;
     }
 
   }
@@ -182,7 +185,6 @@ ul li{
   
   .chat-message {
     padding: 10px 30px;
-    position: absolute;
     bottom: 0;
     height: 115px;
     background: rgba(255,255,255,.4);

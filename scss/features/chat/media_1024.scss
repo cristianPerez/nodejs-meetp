@@ -1,0 +1,23 @@
+.people-list {
+    width: 260px;
+    max-width: 260px;
+    position:relative;
+    left: 0px;
+    background: transparent;
+    z-index: 2;
+    transition: .3s all ease;
+    float: left;
+    .close-menu{
+        display: none;
+    }
+}
+
+.chat {
+    width: calc(100% - 260px);
+    display: inline-block;
+    .chat-header{
+        .chat-menu{
+            display: none;
+        }
+    }
+}

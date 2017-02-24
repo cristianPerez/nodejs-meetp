@@ -1,25 +1,7 @@
-@media screen and (min-width: 320px ) {
+
+@media screen and (min-width: 1024px ) {
     //here the import for exaple
+    @import "features/chat/media_1024";
 }
 
-@media screen and (min-width: 540px ) {
-    //here the import for exaple
-    //@import "features/home/media_540";
-}
-
-@media screen and (min-width: 768px ) {
-    //here the import for exaple
-    //@import "features/home/media_768";
-    //@import "features/category/media_768";
-    //@import "components/header/media_768";
-}
-
-@media screen and (min-width: 992px ) {
-    //here the import for exaple
-}
-
-@media screen and (min-width: 1200px ) {
-    //here the import for exaple
-    //@import "features/home/media_1200";
-}
 
