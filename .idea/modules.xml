@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/nodejs-meetp.iml" filepath="$PROJECT_DIR$/.idea/nodejs-meetp.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/pragmachat.iml" filepath="$PROJECT_DIR$/.idea/pragmachat.iml" />
     </modules>
   </component>
 </project>

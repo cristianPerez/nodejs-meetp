@@ -15,6 +15,7 @@ function routes($stateProvider, $urlRouterProvider, $httpProvider) {
             controller: 'loginController as login'
         })
         .state('chat', {
+            cache: false,
             url: '/chat',
             templateUrl: 'app/features/chat/chat.view.html',
             controller: 'chatController as chatCtrl'
