@@ -14,13 +14,16 @@ ul li{
 
 .container {
   margin: 0 auto;
-  width: 750px;
   border-radius: 5px;
 }
 
 .people-list {
-  width:260px;
-  float: left;
+  width: 260px;
+  max-width: 260px;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: -260px;
   
   .search {
     padding: 20px;
@@ -69,12 +72,7 @@ ul li{
 }
 
 .chat {
-  width: 490px;
-  float:left;
-  border-top-right-radius: 5px;
-  border-bottom-right-radius: 5px;
-  color: white;
-  border: solid 1px white;
+  width: 100%;
   
   .chat-header {
     padding: 20px;

@@ -48,7 +48,15 @@ io.on('connection', (socket) => {
 
     socket.on('disconnect', () => {
         console.log(`Got disconnect:: ${socket.id}`);
-        var index = users.indexOf(5);
+        //var index = users.indexOf(5);
+        console.log(users);
+        users = users.filter( (u) => {
+            if(u.socket_id !== socket.id){
+                return u
+            }
+        });
+        console.log("sin user"+ users);
+        socket.broadcast.emit('active-users', users)
     })
 
     socket.on('user-new', (nickname) => {
