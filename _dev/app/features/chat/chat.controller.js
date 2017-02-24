@@ -43,9 +43,9 @@
                 socketio.emit('send-message', newMessage);
             } else {
                 var word = "";
-                word = vm.message.split(" ");
-                if(word != undefined){
-                    newMessage.message = vm.message;
+                word = vm.message.split("#giphy");
+                if(word[1] != undefined){
+                    newMessage.message = word[1].trim();
                     socketio.emit('req-message-gif', newMessage);
                     vm.gif = false;
                 }
