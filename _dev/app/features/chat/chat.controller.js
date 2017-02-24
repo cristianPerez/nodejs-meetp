@@ -42,7 +42,6 @@
             if(!vm.gif){
                 newMessage.message = vm.message;
                 vm.chats.push(newMessage);
-                vm.message = "";
                 socketio.emit('send-message', newMessage);
             } else {
                 var word = "";
@@ -53,6 +52,7 @@
                     vm.gif = false;
                 }
             }
+            vm.message = "";
         };
 
          vm.sendgif = function(){
@@ -66,14 +66,12 @@
             });
             socketio.on('res-message-gif', function(message){
                  vm.chats.push(message);
-                 vm.message = "";
             })
             socketio.on('active-users', function(users){
                  vm.users = users;
             })
 
             socketio.on('user-name', function(user_name) {
-                //utilitiesService.setLocalStorageItem("nickname",user_name);
                 vm.nickname_storage = user_name;
             })
 
